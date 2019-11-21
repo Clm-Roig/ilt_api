@@ -1,2 +1,1 @@
-# ilk_api
-I Like That - RESTful API
+# I Like That - RESTful API
