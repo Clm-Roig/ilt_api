@@ -19,4 +19,11 @@ pip install -r requirements.txt
 
 ```sh
 cd ilt_api
-./manage.py runserver``
+./manage.py runserver
+```
+
+## Tests
+
+```sh
+./manage.py test
+```
