@@ -5,7 +5,7 @@ attrs==19.3.0
 black==19.10b0
 cfgv==2.0.1
 Click==7.0
-Django==2.2.7
+Django==2.2.8
 djangorestframework==3.10.3
 identify==1.4.7
 importlib-metadata==0.23
