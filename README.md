@@ -7,6 +7,7 @@ Don't forget anything and share your tips with your friends!
 ## Dependencies
 
 - Python 3.7+
+- Python virtual env
 - Django
 - Django Rest Framework
 - PostGreSQL
@@ -18,6 +19,7 @@ pip install -r requirements.txt
 ```
 
 ```sh
+source ./env/bin/activate
 cd ilt_api
 ./manage.py runserver
 ```
