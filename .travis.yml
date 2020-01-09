@@ -14,7 +14,7 @@ install:
 
 before_script:
   - psql -c "CREATE DATABASE travisdb;" -U postgres
-  - python ilt_api/manage.py migrate --noinput
+  - python ilt_api/manage.py migrate --noinput --database=travisdb
 
 env:
   - DJANGO=2.2.7
