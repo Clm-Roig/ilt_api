@@ -1,1 +1,1 @@
-web: gunicorn ilt_api.wsgi
+web: gunicorn ilt_api.project.wsgi
