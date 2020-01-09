@@ -138,13 +138,6 @@ PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 STATIC_URL = "/static/"
 STATIC_ROOT = os.path.join(PROJECT_ROOT, "staticfiles")
 
-# Workaround for production deployment (getting 500 error when Debug=False on Heroku)
-# https://stackoverflow.com/a/50897319
-# PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
-# STATIC_ROOT = os.path.join(PROJECT_ROOT, "staticfiles")
-# STATICFILES_STORAGE = "django.contrib.staticfiles.storage.StaticFilesStorage"
-# STATIC_URL = "/static/"
-
 REST_FRAMEWORK = {
     "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.PageNumberPagination",
     "PAGE_SIZE": 10,
