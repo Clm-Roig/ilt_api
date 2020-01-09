@@ -1,0 +1,22 @@
+language: python
+
+python:
+  - 3.7
+
+addons:
+  - postgresql: "11.6"
+
+before_install:
+  - export DABATASE_URL=postgres://postgres@localhost/travisdb
+
+install:
+  - pip install -r requirements.txt
+
+before_script:
+  - psql -c "CREATE DATABASE travisdb;" -U postgres
+  - python ilt_api/manage.py migrate --noinput
+
+env:
+  - DJANGO=2.2.7
+
+script: python ilt_api/manage.py test --keepdb
