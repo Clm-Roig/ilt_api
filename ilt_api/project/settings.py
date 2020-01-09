@@ -34,6 +34,9 @@ else:
 ALLOWED_HOSTS = []
 
 
+ADMINS = (("Clément Roig", "clm.roig@gmail.com"),)
+
+
 # Application definition
 
 INSTALLED_APPS = [
