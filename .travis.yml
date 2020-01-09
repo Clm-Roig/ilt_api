@@ -6,9 +6,6 @@ python:
 services:
   - postgresql
 
-addons:
-  - postgresql: "11.6"
-
 before_install:
   - export DABATASE_URL=postgres://postgres@localhost/travisdb
 
