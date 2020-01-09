@@ -93,7 +93,15 @@ DATABASES = {
         "PASSWORD": "postgres",
         "HOST": "localhost",
         "PORT": "5432",
-    }
+    },
+    "travisdb": {
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": "travisdb",
+        "USER": "postgres",
+        "PASSWORD": "",
+        "HOST": "localhost",
+        "PORT": "",
+    },
 }
 
 
