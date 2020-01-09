@@ -28,13 +28,10 @@ SECRET_KEY = os.environ.get(
 # SECURITY WARNING: don't run with debug turned on in production!
 if os.environ.get("ENV") == "PRODUCTION":
     DEBUG = False
+    ALLOWED_HOSTS = ["herokuapp.com"]
 else:
-    DEBUG = True
-
-ALLOWED_HOSTS = []
-
-
-ADMINS = (("Clément Roig", "clm.roig@gmail.com"),)
+    DEBUG = False
+    ALLOWED_HOSTS = ["localhost", "127.0.0.1"]
 
 
 # Application definition
@@ -137,6 +134,7 @@ PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 STATIC_ROOT = os.path.join(PROJECT_ROOT, "staticfiles")
 STATICFILES_STORAGE = "django.contrib.staticfiles.storage.StaticFilesStorage"
 
+STATIC_URL = "/static/"
 
 REST_FRAMEWORK = {
     "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.PageNumberPagination",
@@ -155,4 +153,5 @@ NOSE_ARGS = [
 # CORS Config in debug
 CORS_ORIGIN_ALLOW_ALL = DEBUG
 
-django_heroku.settings(locals())
+if os.environ.get("ENV") == "PRODUCTION":
+    django_heroku.settings(locals())
