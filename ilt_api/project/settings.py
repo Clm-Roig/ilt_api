@@ -151,21 +151,22 @@ NOSE_ARGS = [
     "--nologcapture",
 ]
 
-# Logging
-LOGGING = {
-    "version": 1,
-    "disable_existing_loggers": False,
-    "handlers": {"console": {"class": "logging.StreamHandler",},},
-    "loggers": {
-        "django": {
-            "handlers": ["console"],
-            "level": os.getenv("DJANGO_LOG_LEVEL", "DEBUG"),
-        },
-    },
-}
-
 # CORS Config in debug
 CORS_ORIGIN_ALLOW_ALL = DEBUG
+
+
+# Sentry.io configuration
+import sentry_sdk
+from sentry_sdk.integrations.django import DjangoIntegration
+
+sentry_sdk.init(
+    dsn="https://ecd3d79c6fa6442887c01a5ca8692668@sentry.io/1876101",
+    integrations=[DjangoIntegration()],
+    # If you wish to associate users to errors (assuming you are using
+    # django.contrib.auth) you may enable sending PII data.
+    send_default_pii=True,
+)
+
 
 if os.environ.get("ENV") == "PRODUCTION":
     django_heroku.settings(locals())
