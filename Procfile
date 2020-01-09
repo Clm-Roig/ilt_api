@@ -1,1 +1,1 @@
-web: gunicorn --pythonpath ilt_api project.wsgi
+web: python ./ilt_api/manage.py collectstatic --noinput; gunicorn --pythonpath ilt_api project.wsgi
