@@ -27,7 +27,7 @@ SECRET_KEY = os.environ.get(
 
 # SECURITY WARNING: don't run with debug turned on in production!
 if os.environ.get("ENV") == "PRODUCTION":
-    DEBUG = False
+    DEBUG = True
 else:
     DEBUG = True
 
@@ -143,19 +143,6 @@ NOSE_ARGS = [
     "--nocapture",
     "--nologcapture",
 ]
-
-# Configure logs
-LOGGING = {
-    "version": 1,
-    "disable_existing_loggers": False,
-    "handlers": {"console": {"class": "logging.StreamHandler",},},
-    "loggers": {
-        "django": {
-            "handlers": ["console"],
-            "level": os.getenv("DJANGO_LOG_LEVEL", "DEBUG"),
-        },
-    },
-}
 
 # CORS Config in debug
 CORS_ORIGIN_ALLOW_ALL = DEBUG
