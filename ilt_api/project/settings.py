@@ -126,15 +126,16 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
+PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 STATIC_URL = "/static/"
+STATIC_ROOT = os.path.join(PROJECT_ROOT, "staticfiles")
 
 # Workaround for production deployment (getting 500 error when Debug=False on Heroku)
 # https://stackoverflow.com/a/50897319
-PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
-STATIC_ROOT = os.path.join(PROJECT_ROOT, "staticfiles")
-STATICFILES_STORAGE = "django.contrib.staticfiles.storage.StaticFilesStorage"
-
-STATIC_URL = "/static/"
+# PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
+# STATIC_ROOT = os.path.join(PROJECT_ROOT, "staticfiles")
+# STATICFILES_STORAGE = "django.contrib.staticfiles.storage.StaticFilesStorage"
+# STATIC_URL = "/static/"
 
 REST_FRAMEWORK = {
     "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.PageNumberPagination",
@@ -149,6 +150,19 @@ NOSE_ARGS = [
     "--nocapture",
     "--nologcapture",
 ]
+
+# Logging
+LOGGING = {
+    "version": 1,
+    "disable_existing_loggers": False,
+    "handlers": {"console": {"class": "logging.StreamHandler",},},
+    "loggers": {
+        "django": {
+            "handlers": ["console"],
+            "level": os.getenv("DJANGO_LOG_LEVEL", "DEBUG"),
+        },
+    },
+}
 
 # CORS Config in debug
 CORS_ORIGIN_ALLOW_ALL = DEBUG
