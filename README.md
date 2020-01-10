@@ -1,4 +1,5 @@
 # I Like That - RESTful API
+[![Build Status](https://travis-ci.com/Clm-Roig/ilt_api.svg?branch=master)](https://travis-ci.com/Clm-Roig/ilt_api)
 
 Don't forget anything and share your tips with your friends!
 
